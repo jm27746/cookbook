@@ -1,0 +1,8 @@
+<h1>This view will edit the recipe</h1>
+
+<%= form_for @recipe do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :instructions, size: "60x12" %>
+  <%= f.submit "Sumbit Edits" %>
+
+<% end %>

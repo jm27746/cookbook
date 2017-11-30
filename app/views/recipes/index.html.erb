@@ -1,0 +1,6 @@
+<h1>This will index and display the recipes for all users</h1>
+
+<% @recipes.each do |recipe| %>
+    <h1><%= recipe.name %></h1>
+    <h1><%= recipe.instructions %></h1>
+<% end %>
