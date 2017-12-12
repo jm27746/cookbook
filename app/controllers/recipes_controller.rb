@@ -50,6 +50,11 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+  def search
+      @recipes = Recipe.where("name LIKE ?", "%#{params[:search]}")
+
+  end
+
   private
     def recipe_params
       params.require(:recipe).permit(:name, :instructions)
