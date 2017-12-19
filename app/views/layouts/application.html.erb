@@ -9,39 +9,10 @@
   </head>
 
   <body>
-
-    <%= link_to "Home Page", root_path %>
-    <%= form_tag search_recipes_path, method: :get do %>
-    <%= text_field_tag :search %>
-    <%= submit_tag "Search" %>
-      <% end %>
-    <p class="navbar-text pull-right">
-      <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-      <% else %>
-      <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-      <% end %>
-
-      <%= link_to "New Recipe", new_recipe_path %>
-      <%= link_to "See all Recipes", recipes_path %>
-
-
-    </p>
-
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-
+    <%= render "layouts/navbar" %>
     <%= yield %>
-
+    <%= render "layouts/footer" %>
   </body>
+
 
 </html>
